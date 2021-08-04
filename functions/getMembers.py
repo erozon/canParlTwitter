@@ -4,6 +4,7 @@ import json
 import pandas as pd
 
 #Security stuff - set the bearer token as an environment variable on your system for this to work.
+#Eric - On your system, makes sure to "conda activate canParlTwitter" for this to work!!!
 bearer_token = os.environ.get("BEARER_TOKEN")
 
 
@@ -49,4 +50,4 @@ def main():
 def getMembers():
     response = main()
     members = pd.DataFrame.from_dict(response['users'])
-    return list(members['screen_name'])
+    return list(members['id'])
